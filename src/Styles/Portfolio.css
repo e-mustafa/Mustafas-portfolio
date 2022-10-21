@@ -1,0 +1,58 @@
+:root{
+   --mainPraimary: #018dff
+ }
+
+.project-Parent{
+   position: relative  ;
+}
+
+
+
+.project-Data{
+   display: none;
+   position:absolute ;
+   top: 0%;
+   left: 0%;
+   background-color: var(--mainPraimary);
+   /* animation: feadOut .3s ease-out reverse; */
+   transition: all .3s;
+}
+
+
+@keyframes feadIn {
+   from { top: -100% }
+   to { top: 0 }
+}
+
+@keyframes feadOut {
+   from{ top: 0 }
+   to { top: -100% }
+
+}
+
+
+
+
+.project-Parent:hover .project-Data{
+   display: flex;
+   /* animation: feadIn .3s ease-in forwards; */
+}
+
+
+
+
+
+
+/* --------------------------------------------------- */
+
+.project-type{
+
+   font-size: 25px !important;
+   font-weight: 700 !important;
+   cursor: pointer;
+}
+
+.project-type:hover{
+   color: var(--mainPraimary) ;
+   transform: scale(1.1);
+}

@@ -1,0 +1,37 @@
+:root{
+   --mainPraimary: #018dff
+}
+
+.social-icons{
+   width: 45px;
+   height: 45px;
+   color: white !important;
+   background: #252525;
+   border-radius: 50%;
+   font-size: 25px;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   cursor: pointer;
+}
+
+.social-icons:hover{
+   background: var(--mainPraimary);
+   transition: all .5s;
+}
+
+
+
+/* .contact-label{
+   color: rgba(255, 255, 255, 0.541) !important;
+}
+
+.contact-input{
+   color: white !important;
+   background-color: #252525 !important;
+
+} */
+
+
