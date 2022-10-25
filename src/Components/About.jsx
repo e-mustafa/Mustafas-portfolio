@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Avatar, Box, Button, Container, Divider, Grid, Link, Stack, Typography } from '@mui/material'
+import { Avatar, Box, Collapse, Container, Divider, Grid, Link, Stack, Typography } from '@mui/material'
 import myImage2 from '../Images/my image 02.png'
 import {LinearWithLabel} from './ProgressWithLabel'
 
@@ -8,10 +8,13 @@ import { SiRedux, SiMaterialui } from "react-icons/si";
 import Experience from './Experience';
 
 import '../Styles/index.css'
+import { ImDownload } from "react-icons/im";
+
 
 
 
 export default function About() {
+
 
   const [mySkills, setMySkills] = useState([
     {name: 'HTML', value: 0},
@@ -37,19 +40,15 @@ export default function About() {
   },[])
 
 
-  // const [collapsTogle, setCollapsTogle] = useState(false)
-  // useEffect( () =>{
-  //   setCollapsTogle((prev) => !prev)
-  // },[])
-
-
 
   return (
-    <Container sx={{my:{xs:'12%', lg:'5%'}}}>
+
+    <Container sx={{my:{xs:'12%', lg:'70px'}}}>
       <Stack textTransform='uppercase' mb={6} >
 
-        <Typography fontSize={{xs:'30px', lg:'100px'}} fontWeight="800" color='#ffffff12' letterSpacing={15}
-         position='absolute' top={40} left={{xs:5, lg:'50%'}} sx={{transform:'translateX(-50%)'}}  >
+        <Typography fontSize={{xs:'30px', lg:'100px'}} fontWeight="800"  letterSpacing={15}
+         position='absolute' top={40} left={{xs:5, lg:'50%'}} sx={{transform:'translateX(-50%)'}}
+         color={(theme) => theme.palette.mode === 'dark' ? '#ffffff12' : '#1e253012' } >
           Resume
         </Typography>
 
@@ -72,11 +71,13 @@ export default function About() {
           </Box>
         </Grid>
 
-        <Grid item xs={12} lg={7}  color='text.secondary' >
+        <Grid item xs={12} lg={7}   >
           <Box display='flex' flexDirection='column' justifyContent='center' width='100%' >
+
             <Typography variant='h5' textTransform='uppercase' > personal infos </Typography>
 
-            <Box display='flex' flexWrap='wrap'  justifyContent='space-between'   mt={3}  >
+          {/* <Slide bottom cascade> */}
+            <Box display='flex' flexWrap='wrap' justifyContent='space-between' mt={3} color='text.secondary' >
               <Stack flex='0 0 50%' mb={1}>
                 <Typography variant='body1' component='span' > Frist Name:
                   <span style={{color:'var(--mainPraimary)', fontWeight:900}} > Mustafa</span>
@@ -134,19 +135,25 @@ export default function About() {
 
 
             </Box>
+        {/* </Slide> */}
           </Box>
 
 
-          <Box mt={3}  >
-            <Button variant='contained'  >
-              <Link href="/files/MUSTAFA-Abutabl-resume.pdf" target="_blank" download color='#ffffff' underline='none'>
-                Download CV
-              </Link>
-            </Button>
-          </Box>
 
+          <Link href="/files/MUSTAFA-Abutabl-resume.pdf" target="_blank" download color='#ffffff' underline='none'>
+            <Box
+              className='project-btn'
+              component='button'
+              mt={5}
+              color='text.primary'
+            >
+              <Box className='project-btn-icon' ><ImDownload /> </Box>
+              <Box className='project-btn-text' > Download CV </Box>
+            </Box>
+          </Link>
 
         </Grid>
+
       </Grid>
 
 
@@ -171,7 +178,6 @@ export default function About() {
       </Box>
 
 
-      {/* <Collapse orientation="horizontal" in={collapsTogle}  easing='enter' timeout={1000} > */}
 
 
       <Box my={6} >
@@ -202,7 +208,6 @@ export default function About() {
           </Box>
         </Stack>
       </Box>
-      {/* </Collapse> */}
 
 
       <Divider  sx={{bgcolor:'Divider', width:'50%', mx:'auto', my:4}} />

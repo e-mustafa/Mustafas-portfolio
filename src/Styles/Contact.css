@@ -5,8 +5,6 @@
 .social-icons{
    width: 45px;
    height: 45px;
-   color: white !important;
-   background: #252525;
    border-radius: 50%;
    font-size: 25px;
 
@@ -14,12 +12,14 @@
    justify-content: center;
    align-items: center;
 
+   transition: all .5s;
    cursor: pointer;
 }
 
 .social-icons:hover{
    background: var(--mainPraimary);
-   transition: all .5s;
+   color: white !important;
+
 }
 
 
@@ -33,5 +33,12 @@
    background-color: #252525 !important;
 
 } */
+
+
+
+
+
+
+
 
 

@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from 'react'
-import { Box, Card, CardMedia, Container, Grid, Stack, Typography, Link } from '@mui/material'
+import { Box, Card, CardMedia, Container, Grid, Stack, Typography } from '@mui/material'
 
 import '../Styles/Portfolio.css'
-import image1 from '../Images/Portfolio-img.png'
 
 import axios from 'axios'
+import {myProjects} from './MyProjectsData'
+import ProjectDetails from './ProjectDetails';
+
+import 'animate.css';
 
 export default function Projects() {
   // https://api.github.com/users/e-mustafa/repos
+  const [open, setOpen] = useState(false);
+  const [EProjectDetails, setProjectDetails] = useState({});
 
-  const [repos, setRepos] = useState([])
+
+  console.log(myProjects);
+  const [repos, setRepos] = useState(myProjects)
+  const [filtertype, setFiltertype] = useState('All')
+  console.log(filtertype);
 
   const getRepos = async ()=>{
     const res = await axios.get(`https://api.github.com/users/e-mustafa/repos`)
@@ -21,21 +30,40 @@ export default function Projects() {
   }
 
 
+  const getRepo1 = async ()=>{
+    const res = await axios.get(`https://api.netlify.com/api/v1/sites/51d8d2a3-f32c-4f64-bbd2-ad12cad17b60`)
+    .catch((error) =>{
+      console.log(error);
+    })
+    // setRepos(res.data)
+    console.log(res);
+  }
+
+
   useEffect(()=>{
-    getRepos()
+    // getRepos()
+    // getRepo1()
+
   },[])
 
+
+  const handelFilter = (e) =>{
+    console.log(e.currentTarget.attributes.value.value);
+    setRepos(myProjects.filter(v => v.Language.includes(e.currentTarget.attributes.value.value)));
+    setFiltertype(e.currentTarget.attributes.value.value)
+  }
 
 
   return (
 
 
     <div>
-    <Container sx={{my:{xs:'12%', lg:'5%'}}}>
+    <Container sx={{my:{xs:'12%', lg:'70px'}}}>
       <Stack textTransform='uppercase' mb={6} >
 
-        <Typography fontSize={{xs:'30px', lg:'100px'}} fontWeight="800" color='#ffffff12' letterSpacing={15}
-         position='absolute' top={40} left={{xs:5, lg:'50%'}} sx={{transform:'translateX(-50%)'}}  >
+        <Typography fontSize={{xs:'30px', lg:'100px'}} fontWeight="800"  letterSpacing={15}
+         position='absolute' top={40} left={{xs:5, lg:'50%'}} sx={{transform:'translateX(-50%)'}}
+         color={(theme) => theme.palette.mode === 'dark' ? '#ffffff12' : '#1e253012' }>
           Works
         </Typography>
 
@@ -47,12 +75,34 @@ export default function Projects() {
       </Stack>
 
 
-      <Stack direction='row' gap={4} justifyContent='center' mt={10} mb={4} >
-        <Typography  className='project-type' > All </Typography>
-        <Typography  className='project-type' > CSS </Typography>
-        <Typography  className='project-type' > JS </Typography>
-        <Typography  className='project-type' > React </Typography>
+      <Stack direction='row' gap={{xs:2, md:4}} justifyContent='center' mt={10} mb={4} >
+        <Typography  className={`project-type ${filtertype === 'All' && 'project-type-active'}`}
+         onClick={()=> {setRepos(myProjects);
+         setFiltertype('All')
+         }} >
+          All
+        </Typography>
+
+        <Typography  className={`project-type ${filtertype === 'CSS' && 'project-type-active'}`}
+         onClick={()=> {
+          setRepos(myProjects.filter(e => !e.Language.includes('Javascript', 'React')));
+          setFiltertype('CSS')
+          }} >
+          CSS
+        </Typography>
+
+        <Typography  className={`project-type ${filtertype === 'Javascript' && 'project-type-active'}`}
+         value='Javascript'onClick={(e)=> handelFilter(e) } >
+          Javascript
+        </Typography>
+
+        <Typography  className={`project-type ${filtertype === 'React' && 'project-type-active'}`}
+         value='React' onClick={(e)=> handelFilter(e) }>
+          React
+        </Typography>
       </Stack>
+
+
 
 
 
@@ -60,33 +110,33 @@ export default function Projects() {
 
       <Grid container spacing={3} >
         {repos && repos.map(e =>
-          <Grid item xs={12} lg={4}  key={e.id}>
-            <Card className='project-Parent'  >
-              <Link href={e.homepage}>
+          <Grid item xs={12} md={6} lg={4}  key={e.id} sx={{position: 'relative'}} >
+            <Card className="flip-card"
+             onClick={()=> {setOpen(true); setProjectDetails(e)}} >
 
-                {/* when hover over card show next box */}
-                <CardMedia
-                  component="img" width='100%' height='100%'
-                  image={image1} alt={e.name}
-                />
+              <Box className="flip-card-inner">
+              {/* when hover over card show next box */}
+              <CardMedia className="flip-card-front"
+                component="img"
+                image={e.img} alt={e.title}
+              />
 
-                <Box className='project-Data' p={2} height='100%' width='100%'
-                  justifyContent='center' alignItems='center'
-                  sx={{textShadow:'1px 1px #fff'}}>
 
-                  <Typography variant="h6" > {e.name} </Typography>
-                  <Typography variant="h6" > {e.description} </Typography>
-                </Box>
-              </Link>
+              <Box className="flip-card-back" >
+
+                  <Typography variant="h6" color='white' > {e.title} </Typography>
+                  {/* <Typography variant="h6" > {e.description} </Typography> */}
+              </Box>
+              </Box>
             </Card>
           </Grid>
         )}
-
       </Grid>
 
-
-
     </Container>
+
+    <ProjectDetails open={open} setOpen={setOpen} EProjectDetails={EProjectDetails} />
+
   </div>
   )
 }

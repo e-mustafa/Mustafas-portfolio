@@ -1,59 +1,57 @@
-import React, { Fragment } from 'react'
-import { Box, Button, Grid, TextField } from '@mui/material'
+import React, { Fragment, useRef, useState } from 'react'
+import { Box, Grid, Paper, Slide, Snackbar, TextField } from '@mui/material'
 // import { Copyright } from '@mui/icons-material';
+
+import { IoPaperPlane } from "react-icons/io5";
+import TaskAltIcon from '@mui/icons-material/TaskAlt';
+
+import emailjs from '@emailjs/browser';
 
 
 
 
 export default function ContactForm() {
+   const form = useRef();
 
-   const handleSubmit = (event) => {
-      event.preventDefault();
-      const data = new FormData(event.currentTarget);
-      console.log(FormData);
-      console.log({
-         email: data.get('email'),
-         password: data.get('password'),
+   const [snackbarState, setSnackbarState] = useState(false);
+   console.log(snackbarState);
+
+
+
+   const sendEmail = (e) => {
+      e.preventDefault();
+
+      emailjs.sendForm('service_lp3qp5q', 'template_dc270ak', form.current, 'Q4VgSuu5zR0FYlGeR')
+      .then((result) => {
+         console.log(result.text);
+         console.log(result);
+         if(result.status === 200){
+            setSnackbarState(true);
+            console.log('its ok');
+         }
+      }, (error) => {
+         console.log(error.text);
       });
+
+      e.target.reset()
    };
 
-   //  const TextFieldWrapper = styled(TextField)`
-   //   fieldset {
-   //     border-radius: 50px;
-   //   }
-   // `;
+
+
 
    return (
       <Fragment>
-      {/* <Container component="main" maxWidth="xs"> */}
-      {/* <CssBaseline /> */}
-      <Box
-         sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-         }}
-      >
-         <Box component="form" noValidate onSubmit={handleSubmit}  ml={{lg:8}} mt={{xs:8, lg:0}} >
+      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
+
+         <Box component="form" ref={form} noValidate onSubmit={sendEmail}  ml={{lg:8}} mt={{xs:8, lg:0}} >
             <Grid container spacing={2}>
-               <Grid item xs={12} sm={6}>
+               <Grid item xs={12} >
                   <TextField
                      autoComplete="given-name"
-                     name="firstName"
+                     name="user_name"
                      fullWidth
-                     id="firstName"
-                     label="First Name"
-                     // inputProps={{className:'contact-input'}}
-                     // InputLabelProps={{className:'contact-label'}}
-                  />
-               </Grid>
-               <Grid item xs={12} sm={6}>
-                  <TextField
-                     fullWidth
-                     id="lastName"
-                     label="Last Name"
-                     name="lastName"
-                     autoComplete="family-name"
+                     id="fullName"
+                     label="Full Name"
                      // inputProps={{className:'contact-input'}}
                      // InputLabelProps={{className:'contact-label'}}
                   />
@@ -63,11 +61,21 @@ export default function ContactForm() {
                         fullWidth
                         id="email"
                         label="Email Address"
-                        name="email"
+                        name="user_email"
                         autoComplete="email"
                         // inputProps={{className:'contact-input'}}
                         // InputLabelProps={{className:'contact-label'}}
                      />
+               </Grid>
+               <Grid item xs={12} >
+                  <TextField
+                     fullWidth
+                     id="subject"
+                     label="Subject"
+                     name="subject"
+                     // inputProps={{className:'contact-input'}}
+                     // InputLabelProps={{className:'contact-label'}}
+                  />
                </Grid>
                <Grid item xs={12}>
                   <TextField  className='contact-input'
@@ -85,20 +93,43 @@ export default function ContactForm() {
                </Grid>
             </Grid>
 
-            <Button
+
+            <Box
+             className='project-btn'
+             component='button'
+             my={3} mx='auto'
+             color='text.primary'
              type="submit"
-             fullWidth
-             variant="contained"
-             size='large'
-             sx={{ mt: 3, mb: 2 }}
             >
-               Send
-            </Button>
+               <Box className='project-btn-icon' ><IoPaperPlane /></Box>
+               <Box className='project-btn-text' > SEND MESSAGE</Box>
+            </Box>
 
          </Box>
       </Box>
       {/* <Copyright sx={{ mt: 5 }} /> */}
-      {/* </Container> */}
+
+
+
+
+
+
+
+      <Snackbar
+       open={snackbarState}
+       onClose={() => {setSnackbarState(false)}}
+       autoHideDuration={6000}
+       TransitionComponent={Slide}
+       sx={{ bottom: { xs: 65, md:'24px'} }} // to show up of the bottom navbar not over it
+       // message={<Box>  <MdDoneAll />  Message was sent. Thank you to contact with me </Box>}
+       children={
+         <Paper elevation={4}  sx={{bgcolor:'text.disabled', color:'white', p:1.5, mx:'auto', display:'flex', gap:1}}>
+            <TaskAltIcon />
+            <span>Message was sent. Thank you to contact.</span>
+         </Paper>
+       }
+      />
+
       </Fragment>
    )
 }

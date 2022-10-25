@@ -2,7 +2,7 @@ import React from 'react'
 import { Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import '../Styles/NavigationLg.css'
-import { FaHome, FaUser, FaBriefcase, FaEnvelopeOpen, FaComments } from "react-icons/fa";
+import { FaHome, FaUser, FaBriefcase, FaEnvelopeOpen } from "react-icons/fa";
 import { useLocation, useNavigate } from 'react-router-dom';
 
 
@@ -21,40 +21,44 @@ const NavigationLg = () => {
          <ul style={{listStyle:'none'}}>
 
             <Box display='flex' flexDirection='column' justifyContent='space-between' alignItems='end'
-               color='white' gap={3} fontSize={18} fontWeight="bold" >
+                gap={3} fontSize={18} fontWeight="bold" >
 
-               <div className='iconPage'  onClick={() => navigate('/')}>
-                  <div className={location.pathname === '/' ? 'iconIcon pageActive' : 'iconIcon' }>
+               <div className='circle-btn' onClick={() => navigate('/')}>
+                  <Box className={location.pathname === '/' ? 'circle-btn-icon pageActive' : 'circle-btn-icon' }
+                   bgcolor='action.disabledBackground' color='text.secondary' >
                      <FaHome />
-                  </div>
-                  <div className='iconlable'>
+                  </Box>
+                  <div className='circle-btn-text'>
                      <Typography  variant='h6'> Home </Typography>
                   </div>
                </div>
 
-               <div className='iconPage'  onClick={() => navigate('/about')}>
-                  <div className={location.pathname === '/about' ? 'iconIcon pageActive' : 'iconIcon' } >
+               <div className='circle-btn' onClick={() => navigate('/about')}>
+                  <Box className={location.pathname === '/about' ? 'circle-btn-icon pageActive' : 'circle-btn-icon' }
+                   bgcolor='action.disabledBackground' color='text.secondary'  >
                      <FaUser />
-                  </div>
-                  <div className='iconlable'>
+                  </Box>
+                  <div className='circle-btn-text'>
                      <Typography  variant='h6'> About Me </Typography>
                   </div>
                </div>
 
-               <div className='iconPage' onClick={() => navigate('/Portfolio')} >
-                  <div className={location.pathname === '/Portfolio' ? 'iconIcon pageActive' : 'iconIcon' } >
+               <div className='circle-btn' onClick={() => navigate('/Portfolio')} >
+                  <Box className={location.pathname === '/Portfolio' ? 'circle-btn-icon pageActive' : 'circle-btn-icon' }
+                   bgcolor='action.disabledBackground' color='text.secondary' >
                    <FaBriefcase />
-                  </div>
-                  <div className='iconlable'>
+                  </Box>
+                  <div className='circle-btn-text'>
                      <Typography  variant='h6'> Portfolio </Typography>
                   </div>
                </div>
 
-               <div className='iconPage' onClick={() => navigate('/contact')} >
-                  <div className={location.pathname === '/contact' ? 'iconIcon pageActive' : 'iconIcon' }>
+               <div className='circle-btn' onClick={() => navigate('/contact')} >
+                  <Box className={location.pathname === '/contact' ? 'circle-btn-icon pageActive' : 'circle-btn-icon' }
+                   bgcolor='action.disabledBackground' color='text.secondary' >
                       <FaEnvelopeOpen />
-                  </div>
-                  <div className='iconlable'>
+                  </Box>
+                  <div className='circle-btn-text'>
                      {/* <Typography  variant='h6'> Contact </Typography> */}
                      Contact
                   </div>
