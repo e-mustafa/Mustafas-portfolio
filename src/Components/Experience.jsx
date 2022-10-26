@@ -6,7 +6,6 @@ import {Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineDo
 
 import {  FaRegHospital, FaToolbox, FaLaptopCode } from "react-icons/fa";
 import { GiOpenBook } from "react-icons/gi";
-import '../Styles/Experience.css'
 import 'animate.css';
 
 
@@ -15,7 +14,7 @@ export default function Experience() {
    return (
       <Fragment>
 
-                 <Typography variant='h5' textTransform='uppercase'  mb={2} > Experience </Typography>
+         <Typography variant='h5' textTransform='uppercase' fontWeight={700}  mb={2} > Experience : </Typography>
 
 
       <Timeline position='right' color='text.white' sx={{px:0, overflow:'hidden'}}   >

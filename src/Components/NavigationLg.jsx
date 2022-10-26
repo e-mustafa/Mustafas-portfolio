@@ -58,7 +58,6 @@ const NavigationLg = () => {
                       <FaEnvelopeOpen />
                   </Box>
                   <div className='circle-btn-text'>
-                     {/* <Typography  variant='h6'> Contact </Typography> */}
                      Contact
                   </div>
                </div>

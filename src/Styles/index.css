@@ -17,15 +17,8 @@ body{
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 
   transition: all .5s;
-  animation: loadpage .5 ease-in-out ;
-
 }
 
-
-@keyframes loadpage {
-  from {transform: scale(0); };
-  to {transform: scale(1);}
-}
 
 
 

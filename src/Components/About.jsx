@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { Avatar, Box, Container, Divider, Grid, Link, Stack, Typography } from '@mui/material'
 import myImage2 from '../Images/my image 02.png'
 
+import {myPersonalInfo} from './MyProjectsData'
 import {LinearWithLabel} from './ProgressWithLabel'
 import Experience from './Experience';
 
 import { FaBootstrap, FaGitAlt, FaGithub } from "react-icons/fa";
 import { SiRedux, SiMaterialui } from "react-icons/si";
-import { FaDownload } from "react-icons/fa";
+import { FiDownload } from "react-icons/fi";
 
 import '../Styles/index.css'
 
@@ -75,82 +76,40 @@ export default function About() {
         <Grid item xs={12} lg={7}   >
           <Box display='flex' flexDirection='column' justifyContent='center' width='100%' >
 
-            <Typography variant='h5' textTransform='uppercase' > personal infos </Typography>
+            <Typography variant='h5' textTransform='uppercase' > personal infos : </Typography>
 
             <Box display='flex' flexWrap='wrap' justifyContent='space-between' mt={3} color='text.secondary' >
-              <Stack flex='0 0 50%' mb={1}>
-                <Typography variant='body1' component='span' > Frist Name:
-                  <span style={{color:'var(--mainPraimary)', fontWeight:900}} > Mustafa</span>
-                </Typography>
-              </Stack>
 
-              <Stack flex='0 0 50%' mb={1}>
-                <Typography variant='body1' flex='0 0 50%'>
-                  <span> Last Name: </span>
-                  <span style={{color:'var(--mainPraimary)', fontWeight:900}} > Abutabl</span>
-                </Typography>
-              </Stack>
+              {myPersonalInfo && myPersonalInfo.map( e =>
+              <Stack flex='0 0 50%'  key={e.id}>
 
-              <Stack flex='0 0 50%' mb={1}>
-                <Typography variant='body1' display='block' > Birthdate:
-                  <span style={{color:'var(--mainPraimary)', fontWeight:900}} > 19/10/1989</span>
-                </Typography>
-              </Stack>
+                <Stack direction={{xs:'column', sm:'row'}} mb={1} columnGap={2}>
+                  <Typography  color='text.secondary'> {e.title} </Typography>
+                  <Typography  fontWeight={900} color={e.color} mr={2}
+                   className='animate__animated animate__zoomInRight'
+                  >
+                    {e.info}
+                  </Typography>
+                </Stack>
 
-              <Stack flex='0 0 50%' mb={1}>
-                <Typography variant='body1' flex='0 0 50%' > Nationality:
-                  <span style={{color:'var(--mainPraimary)', fontWeight:900}} > Egyption</span>
-                </Typography>
               </Stack>
+              )}
 
-              <Stack flex={{xs:'0 0 100%', md:'0 0 50%'}} mb={1}>
-                <Typography variant='body1'  > Military Service:
-                  <span style={{color:'var(--mainPraimary)', fontWeight:900}} > Finshed</span>
-                </Typography>
-              </Stack>
-
-              <Stack flex={{xs:'0 0 100%', md:'0 0 50%'}} mb={1}>
-                <Typography variant='body1' > Langages:
-                  <span style={{color:'var(--mainPraimary)', fontWeight:900}} > Arabic, English</span>
-                </Typography>
-              </Stack>
-
-              <Stack flex={{xs:'0 0 100%', md:'0 0 50%'}} mb={1}>
-                <Typography variant='body1' > Email:
-                  <span style={{color:'var(--mainPraimary)', fontWeight:500}} > eng.mustafa@hotmail.com</span>
-                </Typography>
-              </Stack>
-
-              <Stack flex={{xs:'0 0 100%', md:'0 0 50%'}} mb={1}>
-                <Typography variant='body1' > Phone:
-                  <span style={{color:'var(--mainPraimary)', fontWeight:500}} > +20 111 970 6667</span>
-                </Typography>
-              </Stack>
-
-              <Stack flex={{xs:'0 0 100%', md:'0 0 50%'}} mb={1}>
-                <Typography variant='body1' > Freelance:
-                  <span style={{color:'#01ef92', fontWeight:900}} > Available</span>
-                </Typography>
-              </Stack>
             </Box>
           </Box>
 
 
 
           <Link href="/files/MUSTAFA-Abutabl-resume.pdf" target="_blank" download color='#ffffff' underline='none'>
-            <Box
-              className='project-btn'
-              component='button'
-              mt={5}
-              color='text.primary'
-            >
-              <Box className='project-btn-icon' ><FaDownload /> </Box>
+
+            <Box className='project-btn' component='button' color='text.primary' mt={5} >
+              <Box className='project-btn-icon' ><FiDownload /> </Box>
               <Box className='project-btn-text' > Download CV </Box>
             </Box>
+
           </Link>
 
         </Grid>
-
       </Grid>
 
 
@@ -158,7 +117,7 @@ export default function About() {
       <Divider  sx={{bgcolor:'gray', width:'50%', mx:'auto', my:4}} />
 
       <Box mt={6}>
-        <Typography variant='h5' textTransform='uppercase' > Skills </Typography>
+        <Typography variant='h5' textTransform='uppercase' fontWeight={700} > Skills : </Typography>
 
         <Grid container spacing={3} my={1} >
 
@@ -178,7 +137,7 @@ export default function About() {
 
 
       <Box my={6} >
-        <Typography variant='h5' textTransform='uppercase'  mb={2} > Other Skills </Typography>
+        <Typography variant='h5' textTransform='uppercase'  fontWeight={700} mb={2} > Other Skills : </Typography>
 
         <Stack direction='row' gap={3}   flexWrap='wrap' justifyContent={{xs:'center', lg:'left'}}
          textAlign='center'   >

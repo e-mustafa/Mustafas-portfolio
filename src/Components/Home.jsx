@@ -22,7 +22,7 @@ export const Home = () => {
 
          <Container maxWidth="xs"  >
          <Box display='flex' alignItems='center' justifyContent='center' position='absolute' top={0} left={0}
-             height='100%'
+            height='100%'
          >
 
          <Grid  container  height={{xs:'auto', lg:'100%'}}
@@ -62,7 +62,8 @@ export const Home = () => {
                         Front-end developer
                   </Typography>
 
-                  <Typography  fontSize={{xs:'15px', lg:'20px'}}  color='text.secondary' textAlign='center' px={{xs:2, lg:10}} >
+                  <Typography  fontSize={{xs:'15px', lg:'20px'}}  color='text.secondary' textAlign='justify'
+                   px={{xs:2, lg:10}} className='animate__animated animate__fadeIn'>
                    I'm an Egyption based front‑end developer focused on crafting clean & user‑friendly
                    experiences, I am passionate about building excellent software that improves the lives of that improves lives of human beings.
                   </Typography>

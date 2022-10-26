@@ -40,7 +40,7 @@ const Contact = () => {
       <Grid  container>
         <Grid item  lg={4}  >
           <Stack  textTransform='capitalize' height='100%' direction='column' justifyContent='space-between'>
-            <Typography fontWeight="700" fontSize='15px'  textAlign='left' mb={4}  >
+            <Typography fontWeight="700" fontSize='15px'  textAlign='justify' mb={4}  >
               Feel free to get in touch with me. I am always open to discussing new projects, creative ideas
               or opportunities to be part of your visions.
             </Typography>
@@ -81,25 +81,25 @@ const Contact = () => {
             </Stack>
 
             <Stack display='flex' flexDirection='row' alignItems='center' gap={2}  mb={3}
-              justifyContent={{xs:'center', lg:'left'}} >
+              justifyContent={{xs:'center', lg:'left'}} className='animate__heartBeat'>
 
-              <Link href='https://web.facebook.com/my.6000' >
+              <Link href='https://web.facebook.com/my.6000' target='_blank' >
                 <Box className='social-icons' bgcolor='action.disabledBackground'  > <FaFacebookF /> </Box>
               </Link>
 
-              <Link href='https://www.linkedin.com/in/mustafa-ahmed-8247b45a' >
+              <Link href='https://www.linkedin.com/in/mustafa-ahmed-8247b45a' target='_blank' >
                 <Box className='social-icons' bgcolor='action.disabledBackground'  > <FaLinkedinIn /> </Box>
               </Link>
 
-              <Link href='https://wa.me/+201119706667' >
+              <Link href='https://wa.me/+201119706667' target='_blank' >
                 <Box className='social-icons' bgcolor='action.disabledBackground'  > <FaWhatsapp /> </Box>
               </Link>
 
-              <Link href='https://t.me/eng_noo' >
+              <Link href='https://t.me/eng_noo' target='_blank' >
                 <Box className='social-icons' bgcolor='action.disabledBackground'  > <FaTelegramPlane /></Box>
               </Link>
 
-              <Link href='https://github.com/e-mustafa' >
+              <Link href='https://github.com/e-mustafa' target='_blank' >
                 <Box className='social-icons' bgcolor='action.disabledBackground' > <FaGithub /></Box>
               </Link>
 

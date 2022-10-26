@@ -9,15 +9,13 @@ import { FaMoon } from "react-icons/fa";
 
 export default function TogleTheme({toggleDark, settoggleDark}) {
    return (
-      <div>
-         <Stack zIndex={99} position="absolute" top={20} right={30}>
-            <IconButton
-             className='themeIcon'
-             onClick={()=> settoggleDark(!toggleDark)}
-            >
-               {toggleDark? <FaMoon className='togleIco' /> : <RiSunFill className='togleIco' />}
-            </IconButton>
-         </Stack>
-      </div>
+      <Stack zIndex={99} position="absolute" top={20} right={30}>
+         <IconButton
+            className='themeIcon'
+            onClick={()=> settoggleDark(!toggleDark)}
+         >
+            {toggleDark? <FaMoon className='togleIco' /> : <RiSunFill className='togleIco' />}
+         </IconButton>
+      </Stack>
    )
 }

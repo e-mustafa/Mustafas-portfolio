@@ -16,7 +16,6 @@ export default function ProjectDetails({open, setOpen, EProjectDetails}) {
 
 
    return (
-
       <Dialog
          open={open}
          TransitionComponent={Zoom}
@@ -54,7 +53,6 @@ export default function ProjectDetails({open, setOpen, EProjectDetails}) {
             <Typography variant="body1" > {EProjectDetails.description} </Typography>
 
          </DialogContent>
-
       </Dialog>
    );
 }

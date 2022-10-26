@@ -107,7 +107,7 @@ export default function Projects() {
 
 
 
-      <Grid container spacing={3} >
+      <Grid container spacing={3} className='animate__animated animate__zoomIn' >
         {repos && repos.map(e =>
           <Grid item xs={12} md={6} lg={4}  key={e.id} sx={{position: 'relative'}} >
             <Card className="flip-card"

@@ -9,6 +9,60 @@ import simpleMoviesImg from '../Images/Projects/simple-movies.jpg'
 import simpleMoviesReduxImg from '../Images/Projects/simple-movies-redux.jpg'
 
 
+
+
+export const myPersonalInfo = [
+   {  id:201,
+      title:'Frist Name: ',
+      info: 'Mustafa' ,
+      color: 'var(--mainPraimary)',
+   },
+   {  id:202,
+      title:'Last Name: ',
+      info: 'Abutabl' ,
+      color: 'var(--mainPraimary)',
+   },
+   {  id:203,
+      title:'Birthdate: ',
+      info: '19/10/1989' ,
+      color: 'var(--mainPraimary)',
+   },
+   {  id:204,
+      title:'Nationality: ',
+      info: 'Egyption' ,
+      color: 'var(--mainPraimary)',
+   },
+   {  id:205,
+      title:'Military Service: ',
+      info: ' Finshed' ,
+      color: 'var(--mainPraimary)',
+   },
+   {  id:206,
+      title:'Langages: ',
+      info: 'Arabic, English' ,
+      color: 'var(--mainPraimary)',
+   },
+   {  id:208,
+      title:'Phone: ',
+      info: '+20 111 970 6667' ,
+      color: 'var(--mainPraimary)',
+   },
+   {  id:207,
+      title:'Email: ',
+      info: 'eng.mustafa@hotmail.com' ,
+      color: 'var(--mainPraimary)',
+   },
+   {  id:209,
+      title:'Freelance: ',
+      info: 'Available' ,
+      color: '#01ef92',
+   },
+]
+
+
+
+
+
 export const myProjects = [
    {  id:108,
       title:'Simple Movies with Redux',

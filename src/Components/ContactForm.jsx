@@ -25,7 +25,7 @@ export default function ContactForm() {
             setSnackbarState(true);
          }
       }, (error) => {
-         // console.log(error);
+         console.log(error.text);
       });
 
       e.target.reset()
@@ -36,11 +36,11 @@ export default function ContactForm() {
 
    return (
       <Fragment>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }} >
+      <Box sx={{ display: 'flex', flexDirection: 'column' }} className='animate__animated animate__pulse' >
 
-         <Typography variant='h6' ml={{lg:8}} mb={2} > Send me a message: </Typography>
+         <Typography variant='h6' ml={{lg:8}} mb={2}  mt={{xs:8, lg:0}}> Send me a message: </Typography>
 
-         <Box component="form" ref={form} noValidate onSubmit={sendEmail}  ml={{lg:8}} mt={{xs:8, lg:0}} >
+         <Box component="form" ref={form} noValidate onSubmit={sendEmail}  ml={{lg:8}} >
             <Grid container spacing={2}>
                <Grid item xs={12} >
                   <TextField

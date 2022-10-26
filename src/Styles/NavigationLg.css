@@ -15,8 +15,6 @@
    background-color: var(--mainPraimary);
    color: white;
    border-radius: 30px;
-   /* animation: mymove 1s alternate-reverse ; */
-   /* transition: linear 2s; */
    cursor: pointer;
 }
 
@@ -24,10 +22,7 @@
 .iconlable{
    display: none;
    border-radius: 30px 0 0 30px;
-   /* animation: mymove 1s linear ; */
-   /* animation: mymove 2s cubic-bezier(.77,0,.175,1); */
    background-color: var(--mainPraimary);
-   /* padding: 9px 35px; */
    margin-right: -20px;
    padding: 9px 35px;
 
@@ -38,8 +33,7 @@
 
 .iconPage:hover  .iconlable{
    display: flex !important;
-   /* padding: 9px 35px; */
-   animation: mymove .5s ;
+   /* animation: mymove .5s ; */
    animation-delay: -.3s;
 
    transition: all .5s;
@@ -67,7 +61,6 @@
    text-align: center;
    z-index: 3;
 
-   /* background-color: #2b2a2a; */
    cursor: pointer;
 }
 
@@ -80,31 +73,22 @@
 @keyframes mymove {
    from {
       width: 0%;
-      /* padding: 0px 0px; */
       background-color: #111;
-      /* color: #111; */
       visibility:hidden;
    }
    to {
-      /* width: 125px; */
       padding: 9px 35px;
       background-color: var(--mainPraimary);
-      /* color: white; */
       visibility: visible;
    }
 }
 
-/* @keyframes mymove {
-   from {height: 0%;}
-   to {height: 100%;}
-} */
 
 
 
 .pageActive{
    background-color: var(--mainPraimary) !important;
    color: white !important;
-   /* transform: scale(1.1); */
 }
 
 
