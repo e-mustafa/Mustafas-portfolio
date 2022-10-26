@@ -11,7 +11,6 @@ const NavigationLg = () => {
 
    const navigate = useNavigate()
    const location = useLocation()
-   console.log(location.pathname);
 
 
    return (

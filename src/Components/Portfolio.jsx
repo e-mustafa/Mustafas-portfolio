@@ -1,54 +1,53 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Box, Card, CardMedia, Container, Grid, Stack, Typography } from '@mui/material'
 
 import '../Styles/Portfolio.css'
+import 'animate.css';
 
-import axios from 'axios'
+// import axios from 'axios'
 import {myProjects} from './MyProjectsData'
 import ProjectDetails from './ProjectDetails';
 
-import 'animate.css';
+
 
 export default function Projects() {
-  // https://api.github.com/users/e-mustafa/repos
+
   const [open, setOpen] = useState(false);
   const [EProjectDetails, setProjectDetails] = useState({});
 
 
-  console.log(myProjects);
   const [repos, setRepos] = useState(myProjects)
   const [filtertype, setFiltertype] = useState('All')
-  console.log(filtertype);
-
-  const getRepos = async ()=>{
-    const res = await axios.get(`https://api.github.com/users/e-mustafa/repos`)
-    .catch((error) =>{
-      console.log(error);
-    })
-    setRepos(res.data)
-    console.log(res);
-  }
 
 
-  const getRepo1 = async ()=>{
-    const res = await axios.get(`https://api.netlify.com/api/v1/sites/51d8d2a3-f32c-4f64-bbd2-ad12cad17b60`)
-    .catch((error) =>{
-      console.log(error);
-    })
-    // setRepos(res.data)
-    console.log(res);
-  }
+  // const getRepos = async ()=>{
+  //   const res = await axios.get(`https://api.github.com/users/e-mustafa/repos`)
+  //   .catch((error) =>{
+  //     console.log(error);
+  //   })
+  //   setRepos(res.data)
+  //   console.log(res);
+  // }
 
 
-  useEffect(()=>{
-    // getRepos()
-    // getRepo1()
+  // const getRepo1 = async ()=>{
+  //   const res = await axios.get(`https://api.netlify.com/api/v1/sites/51d8d2a3-f32c-4f64-bbd2-ad12cad17b60`)
+  //   .catch((error) =>{
+  //     console.log(error);
+  //   })
+  //   // setRepos(res.data)
+  //   console.log(res);
+  // }
 
-  },[])
+
+  // useEffect(()=>{
+  //   // getRepos()
+  //   // getRepo1()
+
+  // },[])
 
 
   const handelFilter = (e) =>{
-    console.log(e.currentTarget.attributes.value.value);
     setRepos(myProjects.filter(v => v.Language.includes(e.currentTarget.attributes.value.value)));
     setFiltertype(e.currentTarget.attributes.value.value)
   }

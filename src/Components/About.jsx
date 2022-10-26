@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Avatar, Box, Collapse, Container, Divider, Grid, Link, Stack, Typography } from '@mui/material'
+import { Avatar, Box, Container, Divider, Grid, Link, Stack, Typography } from '@mui/material'
 import myImage2 from '../Images/my image 02.png'
+
 import {LinearWithLabel} from './ProgressWithLabel'
+import Experience from './Experience';
 
 import { FaBootstrap, FaGitAlt, FaGithub } from "react-icons/fa";
 import { SiRedux, SiMaterialui } from "react-icons/si";
-import Experience from './Experience';
+import { FaDownload } from "react-icons/fa";
 
 import '../Styles/index.css'
-import { ImDownload } from "react-icons/im";
 
 
 
@@ -76,7 +77,6 @@ export default function About() {
 
             <Typography variant='h5' textTransform='uppercase' > personal infos </Typography>
 
-          {/* <Slide bottom cascade> */}
             <Box display='flex' flexWrap='wrap' justifyContent='space-between' mt={3} color='text.secondary' >
               <Stack flex='0 0 50%' mb={1}>
                 <Typography variant='body1' component='span' > Frist Name:
@@ -132,10 +132,7 @@ export default function About() {
                   <span style={{color:'#01ef92', fontWeight:900}} > Available</span>
                 </Typography>
               </Stack>
-
-
             </Box>
-        {/* </Slide> */}
           </Box>
 
 
@@ -147,7 +144,7 @@ export default function About() {
               mt={5}
               color='text.primary'
             >
-              <Box className='project-btn-icon' ><ImDownload /> </Box>
+              <Box className='project-btn-icon' ><FaDownload /> </Box>
               <Box className='project-btn-text' > Download CV </Box>
             </Box>
           </Link>
@@ -212,7 +209,7 @@ export default function About() {
 
       <Divider  sx={{bgcolor:'Divider', width:'50%', mx:'auto', my:4}} />
 
-
+      {/* Experience component */}
       <Experience />
 
     </Container>

@@ -1,6 +1,6 @@
+import React from "react";
 import { CircularProgress, LinearProgress, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
 
 
 export function CircularWithLabel(props) {
@@ -37,7 +37,7 @@ export function LinearWithLabel(props) {
           <LinearProgress variant="determinate" sx={{height:'25px', borderRadius: '25px'}} {...props} />
         </Box>
         <Box sx={{ minWidth: 35, position:'absolute', left:'50%', transform:'translateX(-50%)' }}>
-          <Typography variant="body2" color="text.white">{`${Math.round(props.value,)}%`}</Typography>
+          <Typography variant="body2" color='text.primary'>{`${Math.round(props.value,)}%`}</Typography>
         </Box>
       </Box>
    );

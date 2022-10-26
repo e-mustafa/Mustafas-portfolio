@@ -1,6 +1,5 @@
 import React, { Fragment, useRef, useState } from 'react'
-import { Box, Grid, Paper, Slide, Snackbar, TextField } from '@mui/material'
-// import { Copyright } from '@mui/icons-material';
+import { Box, Grid, Paper, Slide, Snackbar, TextField, Typography } from '@mui/material'
 
 import { IoPaperPlane } from "react-icons/io5";
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
@@ -14,8 +13,6 @@ export default function ContactForm() {
    const form = useRef();
 
    const [snackbarState, setSnackbarState] = useState(false);
-   console.log(snackbarState);
-
 
 
    const sendEmail = (e) => {
@@ -24,13 +21,11 @@ export default function ContactForm() {
       emailjs.sendForm('service_lp3qp5q', 'template_dc270ak', form.current, 'Q4VgSuu5zR0FYlGeR')
       .then((result) => {
          console.log(result.text);
-         console.log(result);
          if(result.status === 200){
             setSnackbarState(true);
-            console.log('its ok');
          }
       }, (error) => {
-         console.log(error.text);
+         // console.log(error);
       });
 
       e.target.reset()
@@ -41,7 +36,9 @@ export default function ContactForm() {
 
    return (
       <Fragment>
-      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} >
+      <Box sx={{ display: 'flex', flexDirection: 'column' }} >
+
+         <Typography variant='h6' ml={{lg:8}} mb={2} > Send me a message: </Typography>
 
          <Box component="form" ref={form} noValidate onSubmit={sendEmail}  ml={{lg:8}} mt={{xs:8, lg:0}} >
             <Grid container spacing={2}>

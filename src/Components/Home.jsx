@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Avatar, Card, CardMedia, Grid, Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
 import { useNavigate } from 'react-router-dom';
@@ -15,12 +15,10 @@ export const Home = () => {
 
 
 
-
-
    return (
-      <Fragment>
+      <Box height='100vh' overflow='hidden' >
 
-         <Box className='home-bg-img' bgcolor='text.disabled' ></Box>
+         <Box className='home-bg-img' bgcolor='text.disabled' display={{xs:'none', lg:'block'}} ></Box>
 
          <Container maxWidth="xs"  >
          <Box display='flex' alignItems='center' justifyContent='center' position='absolute' top={0} left={0}
@@ -65,9 +63,8 @@ export const Home = () => {
                   </Typography>
 
                   <Typography  fontSize={{xs:'15px', lg:'20px'}}  color='text.secondary' textAlign='center' px={{xs:2, lg:10}} >
-                   I'm a Egyption based front‑end developer focused on crafting clean & user‑friendly
-                   experiences, I am passionate about building excellent software that improves the lives of those
-                   around me.
+                   I'm an Egyption based front‑end developer focused on crafting clean & user‑friendly
+                   experiences, I am passionate about building excellent software that improves the lives of that improves lives of human beings.
                   </Typography>
 
 
@@ -92,7 +89,7 @@ export const Home = () => {
          </Box>
       </Container>
 
-      </Fragment>
+      </Box>
    )
 }
 

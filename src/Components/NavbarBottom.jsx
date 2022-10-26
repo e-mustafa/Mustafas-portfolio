@@ -29,7 +29,7 @@ const NavbarBottom = () => {
             setValue(0)
             break;
       }
-   },[])
+   },[location.pathname])
 
 
    return (
@@ -42,7 +42,6 @@ const NavbarBottom = () => {
             <BottomNavigation sx={{bgcolor:"#1a1a1a"}} value={value}
                onChange={(event, newValue, ) => {
                   setValue(newValue);
-                  console.log(newValue);
                   navigate(event.currentTarget.attributes.link.value );
                }}
             >

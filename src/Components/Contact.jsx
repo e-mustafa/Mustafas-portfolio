@@ -6,7 +6,6 @@ import { FaMap, FaEnvelopeOpen, FaPhoneAlt } from "react-icons/fa";
 import { FaFacebookF, FaLinkedinIn, FaWhatsapp, FaTelegramPlane, FaGithub } from "react-icons/fa";
 import '../Styles/Contact.css'
 import ContactForm from './ContactForm';
-import { useLocation } from 'react-router-dom';
 
 
 
@@ -14,8 +13,6 @@ import { useLocation } from 'react-router-dom';
 
 const Contact = () => {
 
-  const location = useLocation()
-  console.log(location.pathname);
 
   return (
 
@@ -42,7 +39,7 @@ const Contact = () => {
 
       <Grid  container>
         <Grid item  lg={4}  >
-          <Box  textTransform='capitalize'>
+          <Stack  textTransform='capitalize' height='100%' direction='column' justifyContent='space-between'>
             <Typography fontWeight="700" fontSize='15px'  textAlign='left' mb={4}  >
               Feel free to get in touch with me. I am always open to discussing new projects, creative ideas
               or opportunities to be part of your visions.
@@ -108,7 +105,7 @@ const Contact = () => {
 
             </Stack>
 
-          </Box>
+          </Stack>
         </Grid>
 
         <Grid item lg={7}>
