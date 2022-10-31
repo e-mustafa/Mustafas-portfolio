@@ -73,6 +73,7 @@ export default function About() {
           </Box>
         </Grid>
 
+        {/* ------------------------------------- personal infos ------------------------------ */}
         <Grid item xs={12} lg={7}   >
           <Box display='flex' flexDirection='column' justifyContent='center' width='100%' >
 
@@ -86,7 +87,7 @@ export default function About() {
                 <Stack direction={{xs:'column', sm:'row'}} mb={1} columnGap={2}>
                   <Typography  color='text.secondary'> {e.title} </Typography>
                   <Typography  fontWeight={900} color={e.color} mr={2}
-                   className='animate__animated animate__zoomInRight'
+                   className='animate__animated animate__flipInX'
                   >
                     {e.info}
                   </Typography>
@@ -116,6 +117,7 @@ export default function About() {
 
       <Divider  sx={{bgcolor:'gray', width:'50%', mx:'auto', my:4}} />
 
+      {/* ------------------------------------- Skills ------------------------------ */}
       <Box mt={6}>
         <Typography variant='h5' textTransform='uppercase' fontWeight={700} > Skills : </Typography>
 

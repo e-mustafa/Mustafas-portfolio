@@ -81,13 +81,13 @@ const Contact = () => {
             </Stack>
 
             <Stack display='flex' flexDirection='row' alignItems='center' gap={2}  mb={3}
-              justifyContent={{xs:'center', lg:'left'}} className='animate__heartBeat'>
+              justifyContent={{xs:'center', lg:'left'}} className='animate__animated animate__zoomIn'>
 
               <Link href='https://web.facebook.com/my.6000' target='_blank' >
                 <Box className='social-icons' bgcolor='action.disabledBackground'  > <FaFacebookF /> </Box>
               </Link>
 
-              <Link href='https://www.linkedin.com/in/mustafa-ahmed-8247b45a' target='_blank' >
+              <Link href='https://www.linkedin.com/in/e-mustafa' target='_blank' >
                 <Box className='social-icons' bgcolor='action.disabledBackground'  > <FaLinkedinIn /> </Box>
               </Link>
 
