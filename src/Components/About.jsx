@@ -1,45 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import { Avatar, Box, Container, Divider, Grid, Link, Stack, Typography } from '@mui/material'
+import React from 'react'
+import { Avatar, Box, Container, Divider, Grid, Link, Paper, Stack, Typography } from '@mui/material'
 import myImage2 from '../Images/my image 02.png'
+import myImage3 from "../Images/my imagess 01.png";
 
 import {myPersonalInfo} from './MyProjectsData'
-import {LinearWithLabel} from './ProgressWithLabel'
+// import {LinearWithLabel} from './ProgressWithLabel'
 import Experience from './Experience';
 
-import { FaBootstrap, FaGitAlt, FaGithub } from "react-icons/fa";
-import { SiRedux, SiMaterialui } from "react-icons/si";
+import {  DiJavascript1} from "react-icons/di";
+import { FaBootstrap, FaGitAlt, FaGithub, FaHtml5, FaCss3Alt, FaReact, FaSass} from "react-icons/fa";
+import { SiRedux, SiMaterialui, SiNextdotjs } from "react-icons/si";
 import { FiDownload } from "react-icons/fi";
 
 import '../Styles/index.css'
+import 'animate.css';
+
+import useProgressiveImg from './useProgressiveImg'
 
 
 
 
 export default function About() {
 
-
-  const [mySkills, setMySkills] = useState([
-    {name: 'HTML', value: 0},
-    {name: 'CSS', value: 0},
-    {name: 'Java Script', value: 0},
-    {name: 'React', value: 0},
-  ])
-
-  const setSkills = () =>{
-
-    const skills = [
-      {name: 'HTML', value: 90},
-      {name: 'CSS', value: 75},
-      {name: 'Java Script', value: 80},
-      {name: 'React', value: 77},
-    ]
-    setMySkills(skills)
-  }
+  const [src, { blur }] = useProgressiveImg(myImage3, myImage2);
 
 
-  useEffect( () =>{
-    setSkills()
-  },[])
 
 
 
@@ -66,9 +51,13 @@ export default function About() {
         <Grid item xs={12} lg={5}  color='text.secondary' >
           <Box display='flex' justifyContent='center' mb={{xs:6, lg:0}} >
             <Avatar
-              alt="Mustafa Abutabl Image"
-              src={myImage2}
+              alt="Mustafa Abutabl Pic"
+              src={src}
               sx={{ width: '300px', height: '300px', border:'4px solid #252525', objectFit: 'top',  }}
+              style={{
+                filter: blur ? "blur(20px)" : "none",
+                transition: blur ? "none" : "filter 0.3s ease-out"
+             }}
             />
           </Box>
         </Grid>
@@ -100,15 +89,14 @@ export default function About() {
           </Box>
 
 
-
-          <Link href="/files/MUSTAFA-Abutabl-resume.pdf" target="_blank" download color='#ffffff' underline='none'>
-
-            <Box className='project-btn' component='button' color='text.primary' mt={5} >
-              <Box className='project-btn-icon' ><FiDownload /> </Box>
-              <Box className='project-btn-text' > Download CV </Box>
-            </Box>
-
-          </Link>
+          <Box display='flex' justifyContent={{xs:'center', lg:'left'}} >
+            <Link href='./files/MUSTAFA-Abutabl-resume.pdf' target="_blank" download color='#ffffff' underline='none'>
+              <Box className='project-btn'  color='text.primary' mt={5} >
+                <Box className='project-btn-icon' ><FiDownload /> </Box>
+                <Box className='project-btn-text' > Download CV </Box>
+              </Box>
+            </Link>
+          </Box>
 
         </Grid>
       </Grid>
@@ -118,57 +106,87 @@ export default function About() {
       <Divider  sx={{bgcolor:'gray', width:'50%', mx:'auto', my:4}} />
 
       {/* ------------------------------------- Skills ------------------------------ */}
-      <Box mt={6}>
+      <Box mt={6} >
         <Typography variant='h5' textTransform='uppercase' fontWeight={700} > Skills : </Typography>
 
-        <Grid container spacing={3} my={1} >
+        <Stack direction='row' my={2} color='text.secondary' textAlign='center' gap={2} flexWrap='wrap' className='animate__animated animate__zoomIn'  >
+                
+          <Box fontSize={60} color='#e56229' bgcolor="action.hover" paddingY="20px" borderRadius='10px'
+           flex={{xs:'1 1 40%', lg:'1 1 auto'}} boxShadow={3} sx={{'&:hover': { boxShadow: '0 4px 8px 0 rgb(1 141 255 / 42%)', transform: 'translateY(-10px)', transition:"all .5s"}}}  >
+            <FaHtml5/>
+            <Typography variant='body1' fontWeight={700} mb={2} > HTML </Typography>
+          </Box>
 
-          {mySkills.map((e, i) =>
-            <Grid item xs={12} lg={6}  key={i} color='text.secondary' >
-              <Stack  mr={{xs:0, lg:6}} >
-                <Typography variant='h5' mb={1} > {e.name} </Typography>
-                <LinearWithLabel value={e.value}   />
-              </Stack>
-            </Grid>
-          )}
+          <Box fontSize={60} color='#007FFF' bgcolor="action.hover" paddingY="20px" borderRadius='10px'
+           flex={{xs:'1 1 40%', lg:'1 1 auto'}} boxShadow={3} sx={{'&:hover': { boxShadow: '0 4px 8px 0 rgb(1 141 255 / 42%)', transform: 'translateY(-10px)', transition:"all .5s"}}}  >
+           <FaCss3Alt/>
+            <Typography variant='body1' fontWeight={700} mb={2} > CSS </Typography>
+          </Box>
 
-        </Grid>
+          <Box fontSize={60} color='#EAD41C' bgcolor="action.hover" paddingY="20px" borderRadius='10px'
+           flex={{xs:'1 1 40%', lg:'1 1 auto'}} boxShadow={3} sx={{'&:hover': { boxShadow: '0 4px 8px 0 rgb(1 141 255 / 42%)', transform: 'translateY(-10px)', transition:"all .5s"}}}  >
+           <DiJavascript1/>
+            <Typography variant='body1' fontWeight={700} mb={2} > JavaScript </Typography>
+          </Box>
+
+          <Box fontSize={60} color='#00CEF2' bgcolor="action.hover" paddingY="20px" borderRadius='10px'
+           flex={{xs:'1 1 40%', lg:'1 1 auto'}} boxShadow={3} sx={{'&:hover': { boxShadow: '0 4px 8px 0 rgb(1 141 255 / 42%)', transform: 'translateY(-10px)', transition:"all .5s"}}}  >
+           <FaReact/>
+            <Typography variant='body1' fontWeight={700} mb={2} > React </Typography>
+          </Box>
+
+        </Stack>
       </Box>
 
+      <Divider  sx={{bgcolor:'Divider', width:'50%', mx:'auto', my:4}} />
 
 
 
       <Box my={6} >
         <Typography variant='h5' textTransform='uppercase'  fontWeight={700} mb={2} > Other Skills : </Typography>
 
-        <Stack direction='row' gap={3}   flexWrap='wrap' justifyContent={{xs:'center', lg:'left'}}
-         textAlign='center'   >
+        <Box display='flex' flexDirection='row'  gap={3}  flexWrap='wrap' textAlign='center'   >
 
-          <Box fontSize={60} color='#723DBE' borderRadius='10px'>
+          <Box fontSize={60} color='#723DBE' flex={{xs:'1 1 auto'}}>
             <FaBootstrap/>
             <Typography variant='body1' color='praimary' mb={2} > Bootstrap </Typography>
           </Box>
-          <Box fontSize={60} color='#007FFF' borderRadius='10px' >
+
+          <Box fontSize={60} color='#007FFF' flex={{xs:'1 1 auto'}} >
             <SiMaterialui/>
             <Typography variant='body1' color='praimary' mb={2} > Material Ui </Typography>
           </Box>
-          <Box fontSize={60} color='praimary' borderRadius='10px' >
+
+          <Box fontSize={60} color='praimary' flex={{xs:'1 1 auto'}} >
             <FaGithub/>
             <Typography variant='body1' color='praimary' mb={2} > Github </Typography>
           </Box>
-          <Box fontSize={60} color='#DE4C36' borderRadius='10px' >
+
+          <Box fontSize={60} color='#DE4C36' flex={{xs:'1 1 auto'}} >
             <FaGitAlt/>
             <Typography variant='body1' color='praimary' mb={2} > Git </Typography>
           </Box>
-          <Box fontSize={60} color='#764ABC' borderRadius='10px' >
+
+          <Box fontSize={60} color='#764ABC' flex={{xs:'1 1 auto'}} >
             <SiRedux/>
             <Typography variant='body1' color='praimary' mb={2} > Redux </Typography>
           </Box>
-        </Stack>
+
+          <Box fontSize={60} color='#c76494' flex={{xs:'1 1 auto'}} >
+          <FaSass />
+            <Typography variant='body1' color='praimary' mb={2} > SASS </Typography>
+          </Box>
+
+          <Box fontSize={60} color='praimary' flex={{xs:'1 1 auto'}} >
+          <SiNextdotjs />
+            <Typography variant='body1' color='praimary' mb={2} > Next </Typography>
+          </Box>
+        </Box>
       </Box>
 
 
-      <Divider  sx={{bgcolor:'Divider', width:'50%', mx:'auto', my:4}} />
+      <Divider  sx={{bgcolor:'gray', width:'50%', mx:'auto', my:4}} />
+
 
       {/* Experience component */}
       <Experience />

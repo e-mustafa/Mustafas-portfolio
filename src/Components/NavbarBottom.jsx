@@ -3,6 +3,7 @@ import { BottomNavigation, BottomNavigationAction, Box, } from '@mui/material';
 import { FaHome, FaUser, FaBriefcase, FaEnvelopeOpen, } from "react-icons/fa";
 import { useLocation, useNavigate } from 'react-router-dom';
 
+import {startLink} from './MyProjectsData'
 
 const NavbarBottom = () => {
    const navigate = useNavigate()
@@ -13,16 +14,16 @@ const NavbarBottom = () => {
 
    useEffect(()=>{
       switch (location.pathname) {
-         case '/':
+         case `${startLink}/`:
             setValue(0)
             break;
-         case '/about':
+         case `${startLink}/about`:
             setValue(1)
             break;
-         case '/Portfolio':
+         case `${startLink}/Portfolio`:
             setValue(2)
             break;
-         case '/contact':
+         case `${startLink}/contact`:
             setValue(3)
             break;
          default:
@@ -45,10 +46,10 @@ const NavbarBottom = () => {
                   navigate(event.currentTarget.attributes.link.value );
                }}
             >
-               <BottomNavigationAction  sx={{color:'#ffffff'}} link='/' label="Home" icon={<FaHome />} />
-               <BottomNavigationAction sx={{color:'#ffffff'}} link='/about' label="Abute Me" icon={<FaUser />} />
-               <BottomNavigationAction sx={{color:'#ffffff'}} link='/Portfolio' label="Portfolio" icon={<FaBriefcase />} />
-               <BottomNavigationAction sx={{color:'#ffffff'}} link='/contact' label="Contact" icon={<FaEnvelopeOpen />} />
+               <BottomNavigationAction sx={{color:'#ffffff'}} link={`${startLink}/`} label="Home" icon={<FaHome />} />
+               <BottomNavigationAction sx={{color:'#ffffff'}} link={`${startLink}/about`} label="Abute Me" icon={<FaUser />} />
+               <BottomNavigationAction sx={{color:'#ffffff'}} link={`${startLink}/Portfolio`} label="Portfolio" icon={<FaBriefcase />} />
+               <BottomNavigationAction sx={{color:'#ffffff'}} link={`${startLink}/contact`} label="Contact" icon={<FaEnvelopeOpen />} />
             </BottomNavigation>
          </Box>
       </Fragment>

@@ -13,6 +13,7 @@ export default function TogleTheme({toggleDark, settoggleDark}) {
          <IconButton
             className='themeIcon'
             onClick={()=> settoggleDark(!toggleDark)}
+            title='Dark/Light mode'
          >
             {toggleDark? <FaMoon className='togleIco' /> : <RiSunFill className='togleIco' />}
          </IconButton>
